@@ -1,6 +1,6 @@
 # UnlockDelay
 
-A plugin that locks certain doors at the start of the round for a specified amoutn fo time.
+A plugin that locks certain doors at the start of the round for a specified amount of time.
 
 # Installation
 
