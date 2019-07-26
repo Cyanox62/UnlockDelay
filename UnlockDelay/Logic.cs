@@ -15,19 +15,20 @@ namespace UnlockDelay
 			foreach (string s in instance.GetConfigString("dl_list").Split(','))
 			{
 				string[] split = s.Split(':');
-				string door = split[0].ToUpper();
+				string door = split[0].Trim().ToUpper();
+				string delay = split[1].Trim();
 
 				Door d = dList.FirstOrDefault(x => x.Name == door);
 
 				if (d != null)
 				{
-					if (float.TryParse(split[1], out float fl))
+					if (float.TryParse(delay, out float fl))
 					{
 						doorList.Add(d, fl);
 					}
 					else
 					{
-						instance.Info($"ERROR: Invalid delay '{split[1]}' in entry '{s}'. Ignoring entry...");
+						instance.Info($"ERROR: Invalid delay '{delay}' in entry '{s}'. Ignoring entry...");
 					}
 				}
 				else
